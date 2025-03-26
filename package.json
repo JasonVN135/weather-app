@@ -4,7 +4,7 @@
   "description": "A simple weather app that displays the current weather conditions based on user input. Built using **HTML, CSS, and JavaScript**",
   "main": "script.js",
   "scripts": {
-    "build": "npm run build",
+    "build": "echo \"Building project...\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
