@@ -18,8 +18,6 @@ exports.handler = async (event) => {
 
 	// Creates the url like normal from weatherapi using the API from Netlifty
     const url = `https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${city}`; // URL with the city
-
-    console.log(url)
 	// Try to fetch the data
     try {
 		// Fetch the response from the url
