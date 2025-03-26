@@ -14,5 +14,5 @@ A simple weather app that displays the current weather conditions based on user 
 - **Hosting**: Netlify
 
 ## How to Use
-The weather app can be viewable [Here](https://jasonvn135-weather-app.netlify.app/)
+The weather app can be viewable [Here](https://jasonvn135-weather-app.netlify.app/)<br />
 The current application is currently set up only to be used through the website.
