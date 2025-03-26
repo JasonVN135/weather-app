@@ -1,4 +1,3 @@
-const fetch = require('node-fetch'); // Required for Netlify Functions to use fetch
 
 exports.handler = async (event) => {
     const API_KEY = process.env.WEATHER_API_KEY; // Securely stored in Netlify
