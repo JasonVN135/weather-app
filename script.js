@@ -54,6 +54,7 @@ function searchForLocation(e) {
 	e.preventDefault()
 
 	target = searchField.value
+	searchField.value = ""
 
 	fetchResults(target)
 }
