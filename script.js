@@ -1,4 +1,5 @@
 
+
 // Used to gain reference from the html file of different components
 // "temp" - Looks for a class named 'temp'
 // "time_location p" - Looks for a type p with a class name time_location
@@ -21,33 +22,36 @@ const fetchResults = async (targetLocation) => {
 
 	// await = Used to pause async function execution until a promise is fulfilled
 
-	let url = `http://api.weatherapi.com/v1/current.json?key=fab7bd612d4d499281035124252603&q=${targetLocation}&aqi=no`
-
-	const res = await fetch(url)
+	// Fetch data from /netlify/functions/getWeather js file
+	// Passes the city as a parameter
+	const res = await fetch(`/.netlify/functions/getWeather?city=${targetLocation}`);
+	if (!res.ok) {
+		throw new Error(`Netlify function call failed: ${res.status}`);
+	}
 	const data = await res.json()
 
 	console.log(data)
 
 	let locationName = data.location.name
 	let locationTime = data.location.localtime
-	let lociatonTemp = data.current.temp_f
+	let locationTemp = data.current.temp_f
 	let locationCondition = data.current.condition.text
 	let locationConditionImage = data.current.condition.icon
-	populateDetails(lociatonTemp, locationName, locationTime, locationCondition, locationConditionImage)
+	populateDetails(locationTemp, locationName, locationTime, locationCondition, locationConditionImage)
 }
 
 function populateDetails(temp, locationName, time, condition, image) {
 	
-	let splitDate = time.split(' ')[0]
-	let splitTime = time.split(' ')[1]
-	let currentDay = getDayName(new Date(splitDate).getDay())
+	let splitDate = time.split(' ')[0];
+	let splitTime = time.split(' ')[1];
+	let currentDay = getDayName(new Date(splitDate).getDay());
 
-	temperatureField.innerText = temp
-	locationField.innerText = locationName
-	dateAndTimeField.innerText = `${splitDate} ${currentDay} ${splitTime}`
-	conditionField.innerText = condition
+	temperatureField.innerText = temp || "N/A";
+	locationField.innerText = locationName || "Unknown Location";
+	dateAndTimeField.innerText = `${splitDate} ${currentDay} ${splitTime}` || "Unknown Time";
+	conditionField.innerText = condition || "No Condition Available";
 	
-	conditionImageField.src = image
+	conditionImageField.src = image || "default-image-url.png";
 }
 
 function searchForLocation(e) {
@@ -65,7 +69,7 @@ function getDayName(num) {
 		case 0:
 			return "Sunday"
 		case 1:
-			return "MOnday"
+			return "Monday"
 		case 2:
 			return "Tuesday"
 		case 3:
