@@ -1,0 +1,23 @@
+{
+  "name": "weather-app",
+  "version": "1.0.0",
+  "description": "A simple weather app that displays the current weather conditions based on user input. Built using **HTML, CSS, and JavaScript**",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JasonVN135/weather-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JasonVN135/weather-app/issues"
+  },
+  "homepage": "https://github.com/JasonVN135/weather-app#readme",
+  "dependencies": {
+    "node-fetch": "^3.3.2"
+  }
+}
