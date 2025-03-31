@@ -46,7 +46,8 @@
 		let splitTime = time.split(' ')[1];
 		let currentDay = getDayName(new Date(splitDate).getDay());
 
-		temperatureField.innerText = temp || "N/A";
+		
+		temperatureField.innerText = `${temp}°F` || "N/A";
 		locationField.innerText = locationName || "Unknown Location";
 		dateAndTimeField.innerText = `${splitDate} ${currentDay} ${splitTime}` || "Unknown Time";
 		conditionField.innerText = condition || "No Condition Available";
